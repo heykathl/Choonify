@@ -16,15 +16,15 @@ app.listen(port, () => {
 })
 
 // URI
-// const URI = process.env.CHOONIFY_DB_URI
+const uri = process.env.CHOONIFY_DB_URI
 
-// // Connect to MongoDB via Mongoose
-// mongoose
-//   .connect()
-//   .then(() => {
-//     console.log("MongoDB connected");
-//   })
-//   .catch((err) => console.log(err.message));
+// Connect to MongoDB via Mongoose
+mongoose
+  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((err) => console.log(err.message));
 
 // Routes
 app.use("/choons", require('./routes/choons'))
