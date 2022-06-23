@@ -1,6 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const cors = require("cors");
+const choonsRouter = require("./routes/choons")
 
 dotenv.config()
 
@@ -30,12 +32,9 @@ mongoose
 app.use("/choons", require('./routes/choons'))
 
 // Middleware
-// app.use(cors());
-// app.use(express.json()); // Previous was bodyparser, server can read json
+app.use(cors());
+app.use(express.json()); // Previous was bodyparser, server can read json
 
 // Routes
-// app.use("/", choonify)
-// app.use("*", (req, res) => {
-//   res.status(404).json({error: "Not Found"})
-// });
+app.use('/choons', choonsRouter)
 

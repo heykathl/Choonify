@@ -1,12 +1,11 @@
-const { application } = require("express");
 const express = require("express");
 const router = express.Router();
-const { getChoons, saveChoons, editChoons, deleteChoons } = require('../controllers/choonsController')
+const ChoonsController = require('../controllers/choonsController')
 
-router.get('/', getChoons)
-router.post('/', saveChoons)
-router.put('/:id', editChoons)
-router.delete('/:id', deleteChoons)
+router.get('/', ChoonsController.GetChoons)
+router.post('/', ChoonsController.SaveChoons)
+router.put('/:id', ChoonsController.EditChoons)
+router.delete('/:id', ChoonsController.DeleteChoons)
 
 
 module.exports = router;
